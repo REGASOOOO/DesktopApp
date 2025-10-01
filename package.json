@@ -1,0 +1,61 @@
+{
+    "name": "henagame",
+    "version": "0.1.0",
+    "description": "Henagame Electron desktop application",
+    "productName": "Henagame",
+    "main": "dist/main/main.js",
+    "type": "commonjs",
+    "scripts": {
+        "build": "tsc && npm run copy-static",
+        "copy-static": "copyfiles -f src/renderer/index.html dist/renderer",
+        "dev": "concurrently \"tsc -w\" \"wait-on dist/main/main.js && electron .\"",
+        "start": "npm run build && electron .",
+        "lint": "tsc --noEmit",
+        "package": "npm run build && electron-builder --win",
+        "package:dir": "npm run build && electron-builder --dir --win"
+    },
+    "keywords": [
+        "electron",
+        "typescript",
+        "henagame"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {},
+    "devDependencies": {
+        "@types/node": "^20.11.30",
+        "copyfiles": "^2.4.1",
+        "concurrently": "^8.2.2",
+        "electron": "^30.0.0",
+        "electron-builder": "^24.9.1",
+        "typescript": "^5.4.0",
+        "wait-on": "^7.0.1"
+    },
+    "build": {
+        "appId": "com.henagame.desktop",
+        "productName": "Henagame",
+        "directories": {
+            "output": "release",
+            "buildResources": "build"
+        },
+        "files": [
+            "dist/**/*"
+        ],
+        "win": {
+            "target": [
+                {
+                    "target": "nsis",
+                    "arch": [
+                        "x64"
+                    ]
+                }
+            ]
+        },
+        "nsis": {
+            "oneClick": false,
+            "allowToChangeInstallationDirectory": true,
+            "createDesktopShortcut": true,
+            "createStartMenuShortcut": true
+        }
+    }
+}

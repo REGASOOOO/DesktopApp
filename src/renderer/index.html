@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Henagame</title>
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+            background: radial-gradient(circle at center, #1f2937, #0f172a 70%);
+            color: #e0f2fe;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        main {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 8px 24px rgba(59, 130, 246, 0.35);
+        }
+
+        p {
+            margin: 1rem 0 0;
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(191, 219, 254, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1 id="headline">hcloud</h1>
+        <p>henagame desktop</p>
+    </main>
+    <script type="module" src="./renderer.js"></script>
+</body>
+
+</html>
