@@ -12,7 +12,9 @@
         "start": "npm run build && electron .",
         "lint": "tsc --noEmit",
         "package": "npm run build && electron-builder --win",
-        "package:dir": "npm run build && electron-builder --dir --win"
+        "package:dir": "npm run build && electron-builder --dir --win",
+        "build2": "electron-builder",
+        "publish": "electron-builder --publish=always"
     },
     "keywords": [
         "electron",
@@ -32,30 +34,13 @@
         "wait-on": "^7.0.1"
     },
     "build": {
-        "appId": "com.henagame.desktop",
-        "productName": "Henagame",
-        "directories": {
-            "output": "release",
-            "buildResources": "build"
-        },
-        "files": [
-            "dist/**/*"
-        ],
-        "win": {
-            "target": [
-                {
-                    "target": "nsis",
-                    "arch": [
-                        "x64"
-                    ]
-                }
-            ]
-        },
-        "nsis": {
-            "oneClick": false,
-            "allowToChangeInstallationDirectory": true,
-            "createDesktopShortcut": true,
-            "createStartMenuShortcut": true
-        }
+        "appId": "com.Hcloud.id",
+        "publish": [
+            {
+                "provider": "github",
+                "owner": "REGASOOOO",
+                "repo": "DesktopApp"
+            }
+        ]
     }
 }
