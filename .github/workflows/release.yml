@@ -3,8 +3,8 @@ name: Build & Release Electron App
 on:
   push:
     tags:
-      - "v*"   # Exemple : v1.0.0 déclenche un build
-  workflow_dispatch:   # 👈 permet de lancer manuellement
+      - "v*" # Exemple : v1.0.0 déclenche un build
+  workflow_dispatch: # 👈 permet de lancer manuellement
 
 jobs:
   release:
@@ -26,6 +26,9 @@ jobs:
         run: npm install
 
       # 4. Builder & publier
+
+      - name: build
+        run: npm run build
       - name: Build and publish
         run: npm run publish
         env:
