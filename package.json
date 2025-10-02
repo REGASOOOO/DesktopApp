@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "Henagame Electron desktop application",
     "productName": "Henagame",
-    "main": "dist/main.js",
+    "main": "dist/main/main.js",
     "type": "commonjs",
     "scripts": {
         "build": "tsc && npm run copy-static",
@@ -35,6 +35,11 @@
     },
     "build": {
         "appId": "com.Hcloud.id",
+        "files": [
+            "dist/**/*",
+            "node_modules/**/*",
+            "package.json"
+        ],
         "publish": [
             {
                 "provider": "github",
