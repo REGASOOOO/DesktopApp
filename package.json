@@ -21,8 +21,10 @@
         "typescript",
         "henagame"
     ],
-    "author": "REGASO",
-    "email": "etu51716@gmail.com",
+    "author": {
+        "name": "REGASO",
+        "email": "etu51716@henallux.be"
+    },
     "license": "MIT",
     "dependencies": {},
     "devDependencies": {
