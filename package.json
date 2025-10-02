@@ -49,6 +49,13 @@
                 "deb"
             ]
         },
+        "win": {
+            "target": [
+                "nsis",
+                "zip"
+            ],
+            "artifactName": "${name}-${version}-setup.${ext}"
+        },
         "publish": [
             {
                 "provider": "github",

@@ -3,35 +3,54 @@ name: Build & Release Electron App
 on:
   push:
     tags:
-      - "v*" # Exemple : v1.0.0 déclenche un build
-  workflow_dispatch: # 👈 permet de lancer manuellement
+      - "v*"
+  workflow_dispatch:
 
 jobs:
-  release:
+  release-linux:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-
     steps:
-      # 1. Récupérer le code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2. Installer Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      # 3. Installer les dépendances
       - name: Install dependencies
         run: npm install
 
-      # 4. Builder & publier
-
-      - name: build
+      - name: Build
         run: npm run build
-      - name: Build and publish
+
+      - name: Publish (Linux artifacts)
+        run: npm run publish
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  release-windows:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish (Windows .exe)
         run: npm run publish
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
