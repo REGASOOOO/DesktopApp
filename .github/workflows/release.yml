@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"   # Exemple : v1.0.0 déclenche un build
+    workflow_dispatch:   # 👈 permet de lancer manuellement
 
 jobs:
   release:
