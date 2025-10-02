@@ -40,6 +40,12 @@
             "node_modules/**/*",
             "package.json"
         ],
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb"
+            ]
+        },
         "publish": [
             {
                 "provider": "github",

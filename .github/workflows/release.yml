@@ -27,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Snapcraft
-        run: sudo snap install snapcraft --classic
-
       # 4. Builder & publier
 
       - name: build
